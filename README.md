@@ -33,7 +33,7 @@
 
 ## Автор
 
-[DIDD-Developer] - [[Ваш профиль на GitHub](https://github.com/DiDD-Developer))
+[DIDD-Developer] - [[Профиль на GitHub](https://github.com/DiDD-Developer))
 
 ## Лицензия
 
