@@ -1,0 +1,48 @@
+﻿<Window x:Class="Password_Generator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Password_Generator"
+        mc:Ignorable="d"
+        Title="Password Generator" Height="450" Width="800" MinHeight="250" MinWidth="400">
+    <Grid>
+        <Label Content="Select Password Type:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbPasswordType" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="cmbPasswordType_SelectionChanged">
+            <ComboBoxItem>Random Password</ComboBoxItem>
+            <ComboBoxItem>Memorable Password</ComboBoxItem>
+            <ComboBoxItem>PIN Code</ComboBoxItem>
+        </ComboBox>
+
+        <!-- Параметры случайного пароля -->
+        <StackPanel x:Name="stackRandomPassword" Margin="10,50,0,0" Visibility="Collapsed">
+            <Label Content="Password Length:"/>
+            <Slider x:Name="sliderLength" Minimum="8" Maximum="100" Value="8" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+            <Label x:Name="lblLength" Content="Default Length: 8"/>
+            <CheckBox x:Name="chkIncludeNumbers" Content="Include Numbers"/>
+            <CheckBox x:Name="chkIncludeSpecialChars" Content="Include Special Characters"/>
+            <Button Content="Generate Password" Click="btnGenerateRandomPassword_Click"/>
+            <TextBox x:Name="txtRandomPassword" IsReadOnly="True" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!-- Варианты запоминающихся паролей -->
+        <StackPanel x:Name="stackMemorablePassword" Margin="10,50,0,0" Visibility="Collapsed">
+            <Label Content="Password Length:"/>
+            <Slider x:Name="sliderMemorableLength" Minimum="8" Maximum="100" Value="8" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+            <Label x:Name="lblMemorableLength" Content="Default Length: 8"/>
+            <CheckBox x:Name="chkCapitalizeFirstLetter" Content="Capitalize First Letter"/>
+            <CheckBox x:Name="chkFullWords" Content="Full Words"/>
+            <Button Content="Generate Password" Click="btnGenerateMemorablePassword_Click"/>
+            <TextBox x:Name="txtMemorablePassword" IsReadOnly="True" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!-- Параметры PIN-кода -->
+        <StackPanel x:Name="stackPinCode" Margin="10,50,0,0" Visibility="Collapsed">
+            <Label Content="PIN Length:"/>
+            <Slider x:Name="sliderPinLength" Minimum="3" Maximum="12" Value="4" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+            <Label x:Name="lblPinLength" Content="Default Length: 4"/>
+            <Button Content="Generate PIN" Click="btnGeneratePin_Click"/>
+            <TextBox x:Name="txtPin" IsReadOnly="True" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
